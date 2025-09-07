@@ -1,22 +1,20 @@
 // =======================================================
 // UTILITÁRIOS
 // =======================================================
-const isPix = t => typeof t === 'string' && t.trim().startsWith('000201');
-
 const chunk = (str, s = 28) => (str || '').match(new RegExp('.{1,' + s + '}', 'g')) || [];
 
 const setBadges = (el, text) => {
     el.innerHTML = '';
     if (!text) return;
     const b = document.createElement('div');
-    b.className = 'badge ' + (isPix(text) ? 'ok' : 'warn');
-    b.textContent = isPix(text) ? 'Pix válido' : 'QR não é Pix';
+    b.className = 'badge ok';
+    b.textContent = 'QR Code detectado';
     el.appendChild(b);
 };
 
 const renderPayload = (wrap, payload) => {
     wrap.innerHTML = '';
-    if (!payload || !isPix(payload)) return;
+    if (!payload) return;
 
     const chips = document.createElement('div');
     chips.className = 'chips';
@@ -35,7 +33,7 @@ const copyToClipboard = async t => {
     if (!t) return;
     try {
         await navigator.clipboard.writeText(t);
-        alert('Pix copiado!');
+        alert('QR copiado!');
     } catch {
         alert('Não foi possível copiar');
     }
@@ -48,7 +46,7 @@ const videoEl = document.getElementById('video');
 const cameraSelect = document.getElementById('cameraSelect');
 const statusCam = document.getElementById('statusCam');
 const badgesCam = document.getElementById('badgesCam');
-const pixCam = document.getElementById('pixCam');
+const qrCam = document.getElementById('qrCam');
 const copyCam = document.getElementById('copyCam');
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
@@ -104,11 +102,11 @@ async function scanFrame() {
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const code = jsQR(imgData.data, canvas.width, canvas.height);
 
-    if (code && code.data && isPix(code.data)) {
+    if (code && code.data) {
         lastCamPayload = code.data;
-        statusCam.textContent = 'QR Pix detectado';
+        statusCam.textContent = 'QR Code detectado';
         setBadges(badgesCam, lastCamPayload);
-        renderPayload(pixCam, lastCamPayload);
+        renderPayload(qrCam, lastCamPayload);
     } else {
         requestAnimationFrame(scanFrame);
     }
@@ -125,7 +123,7 @@ listCameras();
 const fileInput = document.getElementById('fileInput');
 const statusFile = document.getElementById('statusFile');
 const badgesFile = document.getElementById('badgesFile');
-const pixFile = document.getElementById('pixFile');
+const qrFile = document.getElementById('qrFile');
 const copyFile = document.getElementById('copyFile');
 const previewImg = document.getElementById('previewImg');
 let lastFilePayload = '';
@@ -137,7 +135,7 @@ fileInput.addEventListener('change', async () => {
     previewImg.style.display = 'none';
     statusFile.textContent = 'Processando...';
     badgesFile.innerHTML = '';
-    pixFile.innerHTML = '';
+    qrFile.innerHTML = '';
     lastFilePayload = '';
 
     if (file.type === 'application/pdf') {
@@ -154,17 +152,17 @@ fileInput.addEventListener('change', async () => {
             await page.render({ canvasContext: ctx, viewport }).promise;
             const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const code = jsQR(imgData.data, canvas.width, canvas.height);
-            if (code && code.data && isPix(code.data)) {
+            if (code && code.data) {
                 lastFilePayload = code.data;
                 break;
             }
         }
         if (lastFilePayload) {
-            statusFile.textContent = 'QR Pix detectado no PDF';
+            statusFile.textContent = 'QR Code detectado no PDF';
             setBadges(badgesFile, lastFilePayload);
-            renderPayload(pixFile, lastFilePayload);
+            renderPayload(qrFile, lastFilePayload);
         } else {
-            statusFile.textContent = 'Nenhum QR Pix encontrado no PDF';
+            statusFile.textContent = 'Nenhum QR Code encontrado no PDF';
         }
     } else if (file.type.startsWith('image/')) {
         // imagem
@@ -183,13 +181,13 @@ fileInput.addEventListener('change', async () => {
 
             const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const code = jsQR(imgData.data, canvas.width, canvas.height);
-            if (code && code.data && isPix(code.data)) {
+            if (code && code.data) {
                 lastFilePayload = code.data;
-                statusFile.textContent = 'QR Pix detectado';
+                statusFile.textContent = 'QR Code detectado';
                 setBadges(badgesFile, lastFilePayload);
-                renderPayload(pixFile, lastFilePayload);
+                renderPayload(qrFile, lastFilePayload);
             } else {
-                statusFile.textContent = 'Nenhum QR Pix encontrado';
+                statusFile.textContent = 'Nenhum QR Code encontrado';
             }
         };
     } else {

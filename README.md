@@ -1,16 +1,15 @@
-# Leitor de QR Code Pix
+# Leitor de QR Code
 
-Um aplicativo web offline para leitura de códigos QR do Pix (sistema de pagamentos brasileiro). Suporta leitura via câmera do dispositivo e upload de arquivos (imagens e PDFs).
+Um aplicativo web offline para leitura de códigos QR. Suporta leitura via câmera do dispositivo e upload de arquivos (imagens e PDFs).
 
 ## ✨ Funcionalidades
 
 - **Leitura via câmera**: Selecione dispositivo de câmera e escaneie códigos QR em tempo real
 - **Upload de arquivos**: Suporte para imagens (PNG, JPG, etc.) e PDFs
-- **Validação automática**: Verifica se o código QR é um Pix válido (começa com "000201")
 - **Interface intuitiva**: Design moderno com tema escuro
 - **Offline**: Funciona sem conexão com internet (após carregamento inicial)
-- **Cópia rápida**: Botão para copiar o código Pix para a área de transferência
-- **Visualização clara**: Exibe o código Pix em chips organizados para fácil leitura
+- **Cópia rápida**: Botão para copiar o código QR para a área de transferência
+- **Visualização clara**: Exibe o código QR em chips organizados para fácil leitura
 
 ## 🚀 Como Usar
 
@@ -18,17 +17,17 @@ Um aplicativo web offline para leitura de códigos QR do Pix (sistema de pagamen
 1. Abra o arquivo `index.html` em um navegador moderno
 2. Na seção "Câmera", selecione o dispositivo desejado (se houver múltiplas câmeras)
 3. Clique em "Iniciar" para ativar a câmera
-4. Aponte a câmera para um código QR Pix
+4. Aponte a câmera para um código QR
 5. O código será detectado automaticamente e exibido
-6. Clique em "Copiar Pix" para copiar o código
+6. Clique em "Copiar QR" para copiar o código
 
 ### Opção 2: Upload de Arquivo
 1. Na seção "Upload de arquivo", clique para selecionar um arquivo
 2. Escolha uma imagem ou PDF contendo o código QR
 3. O arquivo será processado automaticamente
 4. Para imagens, uma preview será exibida
-5. O código Pix será extraído e exibido
-6. Use "Copiar Pix" para copiar o resultado
+5. O código QR será extraído e exibido
+6. Use "Copiar QR" para copiar o resultado
 
 ## 📋 Requisitos
 
@@ -85,7 +84,6 @@ Acesse `http://localhost:8000` no navegador.
 
 ## 🎯 Limitações
 
-- Funciona apenas com códigos QR Pix (que começam com "000201")
 - Requer permissões de câmera para funcionalidade de vídeo
 - PDFs são processados página por página (pode ser lento para documentos grandes)
 - Não suporta códigos QR danificados ou de baixa qualidade

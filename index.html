@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leitor Pix QR – Offline (Imagens + PDF)</title>
+<title>Leitor de QR Code – Offline (Imagens + PDF)</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<h1>Leitor de QR Code Pix</h1>
-<div class="sub">Câmera, upload de imagens ou PDF. Apenas Pix (começa com 000201).</div>
+<h1>Leitor de QR Code</h1>
+<div class="sub">Câmera, upload de imagens ou PDF. Escaneia qualquer código QR.</div>
 
 <div class="card">
   <h3>Câmera</h3>
@@ -27,8 +27,8 @@
   <div class="out">
     <div>Status: <span id="statusCam">aguardando...</span></div>
     <div id="badgesCam" class="chips"></div>
-    <div id="pixCam"></div>
-    <button id="copyCam">Copiar Pix</button>
+    <div id="qrCam"></div>
+    <button id="copyCam">Copiar QR</button>
   </div>
 </div>
 
@@ -39,8 +39,8 @@
   <div class="out">
     <div>Status: <span id="statusFile">aguardando arquivo...</span></div>
     <div id="badgesFile" class="chips"></div>
-    <div id="pixFile"></div>
-    <button id="copyFile">Copiar Pix</button>
+    <div id="qrFile"></div>
+    <button id="copyFile">Copiar QR</button>
   </div>
 </div>
 

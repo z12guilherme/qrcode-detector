@@ -1,51 +1,13 @@
-# TODO - Leitor de QR Code Pix
+# TODO - Melhorar Leitor de QR Code (Remover Limitação Pix)
 
-## Funcionalidades a Implementar
-- [ ] Adicionar suporte para outros tipos de QR code (não apenas Pix)
-- [ ] Implementar validação adicional para códigos Pix (verificar campos obrigatórios)
-- [ ] Adicionar funcionalidade de exportar códigos escaneados (JSON/CSV)
-- [ ] Implementar histórico de códigos escaneados com armazenamento local
-- [ ] Adicionar opção de alternar entre tema escuro e claro
-- [ ] Suporte para múltiplas câmeras simultâneas (se disponível)
-- [ ] Adicionar funcionalidade de zoom na câmera
-- [ ] Implementar detecção automática de QR code na câmera (sem botão iniciar)
+## Etapas da Melhoria
+- [x] Atualizar index.html: Alterar títulos e descrições para "Leitor de QR Code" geral
+- [x] Modificar js/script.js: Remover validação isPix(), permitir qualquer QR code
+- [x] Atualizar README.md: Mudar descrição para scanner geral, atualizar recursos e limitações
+- [x] Atualizar TODO.md: Ajustar tarefas para refletir escaneamento geral de QR
 
-## Melhorias de UX/UI
-- [ ] Melhorar responsividade para dispositivos móveis
-- [ ] Adicionar animações de carregamento durante processamento
-- [ ] Implementar notificações toast em vez de alert()
-- [ ] Adicionar preview em tempo real do vídeo da câmera
-- [ ] Melhorar feedback visual para estados de erro
-- [ ] Adicionar atalhos de teclado (ex: Ctrl+V para colar código)
-- [ ] Implementar drag-and-drop para upload de arquivos
-
-## Otimização e Performance
-- [ ] Otimizar processamento de PDFs grandes (paginação ou worker threads)
-- [ ] Implementar cache para bibliotecas externas (jsQR, PDF.js)
-- [ ] Adicionar compressão de imagens antes do processamento
-- [ ] Melhorar detecção de QR code com algoritmos mais avançados
-- [ ] Implementar lazy loading para recursos
-
-## Testes e Qualidade
-- [ ] Adicionar testes unitários para funções utilitárias
-- [ ] Implementar testes de integração para funcionalidades principais
-- [ ] Adicionar testes de acessibilidade (WCAG)
-- [ ] Criar casos de teste para diferentes formatos de QR code Pix
-- [ ] Implementar CI/CD básico com GitHub Actions
-
-## Segurança e Privacidade
-- [ ] Revisar permissões de câmera e armazenamento
-- [ ] Adicionar sanitização de dados de entrada
-- [ ] Implementar limpeza automática de dados temporários
-- [ ] Adicionar opção de processar arquivos localmente sem upload
-
-## Documentação
-- [ ] Criar documentação técnica detalhada das APIs utilizadas
-- [ ] Adicionar exemplos de uso avançado
-- [ ] Criar guia de contribuição para desenvolvedores
-- [ ] Documentar limitações conhecidas do projeto
-
-## Internacionalização
-- [ ] Adicionar suporte para múltiplos idiomas (inglês, espanhol)
-- [ ] Implementar formatação de moeda baseada na localização
-- [ ] Adicionar validação de QR code para outros sistemas de pagamento regionais
+## Testes
+- [ ] Testar com códigos QR Pix (devem funcionar)
+- [ ] Testar com outros tipos de QR code (URLs, texto, etc.)
+- [ ] Verificar se a interface exibe corretamente qualquer dado de QR
+- [ ] Testar upload de imagens e PDFs com diferentes tipos de QR
