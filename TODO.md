@@ -8,6 +8,7 @@ Aplicação implantada em: [scanqrcodepix.netlify.app](https://scanqrcodepix.net
 - [x] Modificar js/script.js: Remover validação isPix(), permitir qualquer QR code
 - [x] Atualizar README.md: Mudar descrição para scanner geral, atualizar recursos e limitações
 - [x] Atualizar TODO.md: Ajustar tarefas para refletir escaneamento geral de QR
+- [x] Adicionar detecção de tipo de QR code na interface
 
 ## Testes
 - [x] Testar com códigos QR Pix (devem funcionar)

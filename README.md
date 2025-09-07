@@ -1,15 +1,16 @@
 # Leitor de QR Code
 
-Um aplicativo web offline e online para leitura de códigos QR. Suporta leitura via câmera do dispositivo e upload de arquivos (imagens e PDFs).
+Um aplicativo web offline para leitura de códigos QR. Suporta leitura via câmera do dispositivo e upload de arquivos (imagens e PDFs).
 
 ## 🌐 Demo Online
 
-Acesse a versão on-line: [scanqrcodepix.netlify.app](https://scanqrcodepix.netlify.app)
+Acesse a versão ao vivo: [scanqrcodepix.netlify.app](https://scanqrcodepix.netlify.app)
 
 ## ✨ Funcionalidades
 
 - **Leitura via câmera**: Selecione dispositivo de câmera e escaneie códigos QR em tempo real
 - **Upload de arquivos**: Suporte para imagens (PNG, JPG, etc.) e PDFs
+- **Detecção automática de tipo**: Identifica automaticamente o tipo de QR code (URL, Email, Telefone, Pix, WhatsApp, etc.)
 - **Interface intuitiva**: Design moderno com tema escuro
 - **Offline**: Funciona sem conexão com internet (após carregamento inicial)
 - **Cópia rápida**: Botão para copiar o código QR para a área de transferência
@@ -115,4 +116,3 @@ Para dúvidas ou sugestões:
 ---
 
 **Nota**: Este é um projeto de código aberto para fins educacionais e pessoais. Use por sua conta e risco.
-

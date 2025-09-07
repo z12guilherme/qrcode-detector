@@ -3,12 +3,97 @@
 // =======================================================
 const chunk = (str, s = 28) => (str || '').match(new RegExp('.{1,' + s + '}', 'g')) || [];
 
+const detectQRType = (data) => {
+    if (!data) return 'Desconhecido';
+
+    // URL
+    if (data.match(/^https?:\/\//) || data.match(/^www\./)) {
+        return 'URL';
+    }
+
+    // Email
+    if (data.match(/^mailto:/) || data.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        return 'Email';
+    }
+
+    // Telefone
+    if (data.match(/^tel:/) || data.match(/^\+?[\d\s\-\(\)]+$/)) {
+        return 'Telefone';
+    }
+
+    // SMS
+    if (data.match(/^sms:/)) {
+        return 'SMS';
+    }
+
+    // WiFi
+    if (data.match(/^WIFI:/)) {
+        return 'WiFi';
+    }
+
+    // Pix (Brazilian payment)
+    if (data.match(/^000201/)) {
+        return 'Pix';
+    }
+
+    // WhatsApp
+    if (data.match(/^https?:\/\/wa\.me\//) || data.match(/^https?:\/\/api\.whatsapp\.com\//)) {
+        return 'WhatsApp';
+    }
+
+    // YouTube
+    if (data.match(/^https?:\/\/(www\.)?youtube\.com\//) || data.match(/^https?:\/\/youtu\.be\//)) {
+        return 'YouTube';
+    }
+
+    // Instagram
+    if (data.match(/^https?:\/\/(www\.)?instagram\.com\//)) {
+        return 'Instagram';
+    }
+
+    // Twitter/X
+    if (data.match(/^https?:\/\/(www\.)?(twitter\.com|x\.com)\//)) {
+        return 'Twitter/X';
+    }
+
+    // Facebook
+    if (data.match(/^https?:\/\/(www\.)?facebook\.com\//)) {
+        return 'Facebook';
+    }
+
+    // LinkedIn
+    if (data.match(/^https?:\/\/(www\.)?linkedin\.com\//)) {
+        return 'LinkedIn';
+    }
+
+    // Geo location
+    if (data.match(/^geo:/)) {
+        return 'Localização';
+    }
+
+    // Calendar event
+    if (data.match(/^BEGIN:VCALENDAR/)) {
+        return 'Evento';
+    }
+
+    // Contact (vCard)
+    if (data.match(/^BEGIN:VCARD/)) {
+        return 'Contato';
+    }
+
+    // Default to text
+    return 'Texto';
+};
+
 const setBadges = (el, text) => {
     el.innerHTML = '';
     if (!text) return;
+
+    const type = detectQRType(text);
+
     const b = document.createElement('div');
     b.className = 'badge ok';
-    b.textContent = 'QR Code detectado';
+    b.textContent = `QR Code detectado (${type})`;
     el.appendChild(b);
 };
 
