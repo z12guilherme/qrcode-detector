@@ -12,6 +12,7 @@ Aplicação implantada em: [scanqrcodepix.netlify.app](https://scanqrcodepix.net
 - [x] Adicionar seção "Como Funciona" no site
 - [x] Adicionar informações sobre LGPD e privacidade
 - [x] Adicionar rodapé com "Developed by: Marcos Guilherme"
+- [x] Adicionar link do GitHub no README.md e rodapé do site
 
 ## Testes
 - [x] Testar com códigos QR Pix (devem funcionar)

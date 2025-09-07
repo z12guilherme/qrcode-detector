@@ -6,6 +6,10 @@ Um aplicativo web offline para leitura de códigos QR. Suporta leitura via câme
 
 Acesse a versão ao vivo: [scanqrcodepix.netlify.app](https://scanqrcodepix.netlify.app)
 
+## 📂 Repositório GitHub
+
+Código fonte disponível em: [github.com/z12guilherme/qrcode-detector](https://github.com/z12guilherme/qrcode-detector)
+
 ## ✨ Funcionalidades
 
 - **Leitura via câmera**: Selecione dispositivo de câmera e escaneie códigos QR em tempo real
