@@ -2,6 +2,10 @@
 
 Um aplicativo web offline para leitura de códigos QR. Suporta leitura via câmera do dispositivo e upload de arquivos (imagens e PDFs).
 
+## 🌐 Demo Online
+
+Acesse a versão ao vivo: [scanqrcodepix.netlify.app](https://scanqrcodepix.netlify.app)
+
 ## ✨ Funcionalidades
 
 - **Leitura via câmera**: Selecione dispositivo de câmera e escaneie códigos QR em tempo real
