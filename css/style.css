@@ -1,0 +1,139 @@
+/* =====================================================
+   RESET E BODY
+===================================================== */
+body {
+    margin: 0;
+    font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+    text-align: center;
+    padding: 20px;
+}
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+h1 {
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+}
+
+.sub {
+    color: #9ca3af;
+    margin-bottom: 18px;
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+.card {
+    background: #111827;
+    border-radius: 16px;
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+.row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.col {
+    flex: 1;
+}
+
+/* =====================================================
+   BOTÕES E INPUTS
+===================================================== */
+button,
+input[type=file],
+select {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #223047;
+    background: #0b1220;
+    color: #e5e7eb;
+    cursor: pointer;
+}
+
+button.primary {
+    background: #0b3b2d;
+    border-color: #1f8f6e;
+}
+
+button.primary:hover {
+    background: #0d4434;
+}
+
+/* =====================================================
+   VIDEO
+===================================================== */
+video {
+    width: 100%;
+    max-height: 360px;
+    border-radius: 14px;
+    border: 1px solid #223047;
+    background: #0b1220;
+}
+
+/* =====================================================
+   OUTPUT BOX
+===================================================== */
+.out {
+    margin-top: 14px;
+    background: #0b1220;
+    border: 1px dashed #223047;
+    border-radius: 12px;
+    padding: 12px;
+    word-break: break-word;
+}
+
+/* =====================================================
+   BADGES
+===================================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    margin: 6px 6px 0 0;
+}
+
+.ok {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.warn {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+/* =====================================================
+   CHIPS
+===================================================== */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.chip {
+    border: 1px solid #223047;
+    background: #0f1526;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-family: ui-monospace, monospace;
+    font-size: 0.86rem;
+}

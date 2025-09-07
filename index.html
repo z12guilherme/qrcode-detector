@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leitor Pix QR – Offline (Imagens + PDF)</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Leitor de QR Code Pix</h1>
+<div class="sub">Câmera, upload de imagens ou PDF. Apenas Pix (começa com 000201).</div>
+
+<div class="card">
+  <h3>Câmera</h3>
+  <div class="row">
+    <div class="col">
+      <label>Dispositivo de câmera</label><br>
+      <select id="cameraSelect"></select>
+    </div>
+    <div class="col" style="max-width:220px;display:flex;align-items:flex-end;gap:8px">
+      <button id="startBtn" class="primary">Iniciar</button>
+      <button id="stopBtn">Parar</button>
+    </div>
+  </div>
+  <video id="video" muted playsinline></video>
+  <div class="out">
+    <div>Status: <span id="statusCam">aguardando...</span></div>
+    <div id="badgesCam" class="chips"></div>
+    <div id="pixCam"></div>
+    <button id="copyCam">Copiar Pix</button>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Upload de arquivo (imagem ou PDF)</h3>
+  <input type="file" id="fileInput" accept="image/*,application/pdf"><br>
+  <img id="previewImg" style="display:none;width:100%;margin-top:12px;border-radius:12px">
+  <div class="out">
+    <div>Status: <span id="statusFile">aguardando arquivo...</span></div>
+    <div id="badgesFile" class="chips"></div>
+    <div id="pixFile"></div>
+    <button id="copyFile">Copiar Pix</button>
+  </div>
+</div>
+
+<!-- jsQR via CDN -->
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<!-- PDF.js via CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
