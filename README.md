@@ -4,7 +4,7 @@ Um aplicativo web offline para leitura de códigos QR. Suporta leitura via câme
 
 ## 🌐 Demo Online
 
-Acesse a versão ao vivo: [Clique Aqui]https://qrcodescandetector.netlify.app/)
+Acesse a versão ao vivo: [Clique Aqui](https://qrcodescandetector.netlify.app/)
 
 ## 📂 Repositório GitHub
 
@@ -120,5 +120,6 @@ Para dúvidas ou sugestões:
 ---
 
 **Nota**: Este é um projeto de código aberto para fins educacionais e pessoais. Use por sua conta e risco.
+
 
 
