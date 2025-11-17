@@ -57,15 +57,16 @@
       </section>
 
       <section class="card">
-        <h3><i class="fa-solid fa-upload"></i> Upload de arquivo (imagem ou PDF)</h3>
-        <label for="fileInput" class="file-label">Clique para selecionar um arquivo</label>
-        <input type="file" id="fileInput" accept="image/*,application/pdf">
+        <h3><i class="fa-solid fa-upload"></i> Upload de Arquivos (em massa)</h3>
+        <label for="fileInput" class="file-label">Clique para selecionar um ou mais arquivos</label>
+        <input type="file" id="fileInput" accept="image/*,application/pdf" multiple>
         <img id="previewImg" alt="Pré-visualização da imagem ou página do PDF">
         <div class="out">
-          <div>Status: <span id="statusFile">aguardando arquivo...</span></div>
-          <div id="badgesFile" class="chips"></div>
-          <div id="qrFile"></div>
-          <button id="copyFile" aria-label="Copiar QR Code"><i class="fa-solid fa-copy"></i> Copiar QR</button>
+          <div class="status-container">
+            <span>Status: <span id="statusFile">aguardando arquivos...</span></span>
+            <div id="fileLoader" class="loader"></div>
+          </div>
+          <div id="multiResultsContainer"></div>
         </div>
       </section>
     </div>

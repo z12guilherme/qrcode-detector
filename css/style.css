@@ -339,3 +339,75 @@ footer .footer-content {
     align-items: center;
     gap: 24px;
 }
+
+/* =====================================================
+   RESULTADOS MÚLTIPLOS
+===================================================== */
+#multiResultsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.result-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.result-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.result-item-filename {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.result-item .chips {
+    margin-top: 0;
+}
+
+/* =====================================================
+   SPINNER / LOADING
+===================================================== */
+.loader {
+    display: none; /* Oculto por padrão */
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--primary-accent);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    margin: 10px auto 0;
+}
+
+.loader.visible {
+    display: block;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}

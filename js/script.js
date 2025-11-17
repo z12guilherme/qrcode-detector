@@ -241,47 +241,93 @@ cameraScanner.init();
 const fileScanner = {
     inputEl: document.getElementById('fileInput'),
     statusEl: document.getElementById('statusFile'),
-    badgesEl: document.getElementById('badgesFile'),
-    qrEl: document.getElementById('qrFile'),
-    copyBtn: document.getElementById('copyFile'),
+    resultsContainer: document.getElementById('multiResultsContainer'),
+    loaderEl: document.getElementById('fileLoader'),
     previewEl: document.getElementById('previewImg'),
-    payload: '',
 
     init() {
-        this.inputEl.addEventListener('change', (e) => this.handleFile(e.target.files[0]));
-        this.copyBtn.addEventListener('click', () => copyToClipboard(this.payload));
+        this.inputEl.addEventListener('change', (e) => this.handleFiles(e.target.files));
     },
 
     reset() {
         this.previewEl.style.display = 'none';
-        this.statusEl.textContent = 'Processando...';
-        this.badgesEl.innerHTML = '';
-        this.qrEl.innerHTML = '';
-        this.payload = '';
+        this.statusEl.textContent = 'Aguardando arquivos...';
+        this.loaderEl.classList.remove('visible');
+        this.resultsContainer.innerHTML = '';
     },
 
-    async handleFile(file) {
-        if (!file) return;
+    async handleFiles(files) {
+        if (!files.length) return;
         this.reset();
+        this.statusEl.textContent = `Processando ${files.length} arquivo(s)...`;
+        this.loaderEl.classList.add('visible');
 
         try {
-            if (file.type === 'application/pdf') {
-                await this.scanPdf(file);
-            } else if (file.type.startsWith('image/')) {
-                await this.scanImage(file);
-            } else {
-                this.statusEl.textContent = 'Arquivo não suportado';
-            }
+            // Cria uma promessa para cada arquivo e as executa em paralelo
+            const processingPromises = Array.from(files).map(file => this.processFile(file));
+            const results = await Promise.all(processingPromises);
 
-            if (this.payload) {
-                displayQRCodeResult(this.payload, this.statusEl, this.badgesEl, this.qrEl);
+            const foundResults = results.filter(result => result !== null);
+
+            foundResults.forEach(result => {
+                this.renderResultItem(result.filename, result.payload);
+            });
+
+            if (foundResults.length > 0) {
+                this.statusEl.textContent = `${foundResults.length} QR Code(s) encontrado(s) em ${files.length} arquivo(s).`;
             } else {
-                this.statusEl.textContent = `Nenhum QR Code encontrado no ${file.type.includes('pdf') ? 'PDF' : 'arquivo'}.`;
+                this.statusEl.textContent = `Nenhum QR Code encontrado nos ${files.length} arquivo(s) selecionado(s).`;
             }
         } catch (error) {
             this.statusEl.textContent = 'Erro ao processar o arquivo.';
             console.error(error);
+        } finally {
+            // Esconde o spinner e limpa o input ao finalizar
+            this.loaderEl.classList.remove('visible');
+            this.inputEl.value = '';
         }
+    },
+
+    async processFile(file) {
+        let payload = null;
+        if (file.type === 'application/pdf') {
+            payload = await this.scanPdf(file);
+        } else if (file.type.startsWith('image/')) {
+            payload = await this.scanImage(file);
+        }
+
+        if (payload) {
+            return { filename: file.name, payload };
+        }
+        return null;
+    },
+
+    renderResultItem(filename, payload) {
+        const item = document.createElement('div');
+        item.className = 'result-item';
+
+        const header = document.createElement('div');
+        header.className = 'result-item-header';
+
+        const nameEl = document.createElement('span');
+        nameEl.className = 'result-item-filename';
+        nameEl.textContent = filename;
+        nameEl.title = filename;
+
+        const copyBtn = document.createElement('button');
+        copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copiar';
+        copyBtn.onclick = () => copyToClipboard(payload);
+
+        header.appendChild(nameEl);
+        header.appendChild(copyBtn);
+
+        const content = document.createElement('div');
+        renderPayload(content, payload);
+
+        item.appendChild(header);
+        item.appendChild(content);
+
+        this.resultsContainer.appendChild(item);
     },
 
     async scanPdf(file) {
@@ -291,20 +337,13 @@ const fileScanner = {
         for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const viewport = page.getViewport({ scale: 2 });
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-
-            await page.render({ canvasContext: ctx, viewport }).promise;
-            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const code = jsQR(imgData.data, canvas.width, canvas.height);
+            const code = await this.scanCanvas(page, viewport);
 
             if (code?.data) {
-                this.payload = code.data;
-                break; // Para na primeira página que encontrar um QR Code
+                return code.data; // Retorna o primeiro QR encontrado no PDF
             }
         }
+        return null;
     },
 
     async scanImage(file) {
@@ -312,28 +351,29 @@ const fileScanner = {
             const img = new Image();
             const url = URL.createObjectURL(file);
             img.src = url;
-
             img.onload = () => {
-                this.previewEl.src = url;
-                this.previewEl.style.display = 'block';
-
                 const canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0);
-
                 const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 const code = jsQR(imgData.data, canvas.width, canvas.height);
-                if (code?.data) {
-                    this.payload = code.data;
-                }
-                // URL.revokeObjectURL(url) não deve ser chamado aqui se a preview continuar visível.
-                resolve();
+                URL.revokeObjectURL(url);
+                resolve(code?.data || null);
             };
-
             img.onerror = reject;
         });
+    },
+
+    async scanCanvas(page, viewport) {
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        const ctx = canvas.getContext('2d');
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        return jsQR(imgData.data, canvas.width, canvas.height);
     }
 };
 
