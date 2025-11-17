@@ -1,6 +1,42 @@
 /* =====================================================
-   RESET E BODY
+   TEMAS E VARIÁVEIS
 ===================================================== */
+:root {
+    /* Tema Escuro (Padrão) */
+    --bg-primary: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
+    --bg-secondary: #111827;
+    --bg-tertiary: #0b1220;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --text-hero: #fff;
+    --border-primary: #223047;
+    --border-secondary: #223047; /* dashed */
+    --primary-accent: #1f8f6e;
+    --primary-accent-hover: #29b58d;
+    --button-primary-bg: #0b3b2d;
+    --button-primary-border: #1f8f6e;
+    --button-primary-hover: #0d4434;
+    --file-label-bg: #0f1526;
+}
+
+body.light-mode {
+    /* Tema Claro */
+    --bg-primary: #f3f4f6;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f9fafb;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-hero: #111827;
+    --border-primary: #e5e7eb;
+    --border-secondary: #d1d5db; /* dashed */
+    --primary-accent: #057a55;
+    --primary-accent-hover: #046c4e;
+    --button-primary-bg: #e7f4f0;
+    --button-primary-border: #a3d9c8;
+    --button-primary-hover: #d1e9e2;
+    --file-label-bg: #f0fdfa;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -8,10 +44,11 @@ html {
 body {
     margin: 0;
     font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-    background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
-    color: #e5e7eb;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     text-align: center;
     padding: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 main {
@@ -45,12 +82,12 @@ main {
     font-weight: 800;
     margin: 0 0 16px 0;
     line-height: 1.2;
-    color: #fff;
+    color: var(--text-hero);
 }
 
 .hero-subtitle {
     font-size: 1.1rem;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     margin-bottom: 24px;
 }
 
@@ -62,14 +99,14 @@ main {
     width: 160px;
     height: 160px;
     border-radius: 16px;
-    background: #0b1220;
+    background: var(--bg-tertiary);
     padding: 12px;
-    border: 1px solid #223047;
+    border: 1px solid var(--border-primary);
 }
 
 .qr-code-caption {
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: var(--text-secondary);
     margin-top: 8px;
 }
 
@@ -95,7 +132,7 @@ h3 {
 }
 
 .sub {
-    color: #9ca3af;
+    color: var(--text-secondary);
     margin-bottom: 18px;
 }
 
@@ -103,7 +140,7 @@ h3 {
    CARD
 ===================================================== */
 .card {
-    background: #111827;
+    background: var(--bg-secondary);
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
@@ -138,9 +175,9 @@ input[type=file],
 select {
     padding: 10px 12px;
     border-radius: 12px;
-    border: 1px solid #223047;
-    background: #0b1220;
-    color: #e5e7eb;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
     cursor: pointer;
 }
 
@@ -151,26 +188,26 @@ input[type="file"] {
 .file-label {
     display: block;
     padding: 12px;
-    background: #0f1526;
-    border: 2px dashed #223047;
+    background: var(--file-label-bg);
+    border: 2px dashed var(--border-primary);
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
 }
 
 button.primary {
-    background: #0b3b2d;
-    border-color: #1f8f6e;
+    background: var(--button-primary-bg);
+    border-color: var(--button-primary-border);
 }
 
 button.primary:hover {
-    background: #0d4434;
+    background: var(--button-primary-hover);
 }
 
 .button-hero {
     display: inline-block;
-    background: #1f8f6e;
-    color: #fff;
+    background: var(--primary-accent);
+    color: var(--text-hero);
     padding: 12px 24px;
     border-radius: 12px;
     text-decoration: none;
@@ -178,6 +215,20 @@ button.primary:hover {
     transition: transform 0.2s;
 }
 
+.button-hero:hover {
+    background: var(--primary-accent-hover);
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
 /* =====================================================
    VIDEO
 ===================================================== */
@@ -185,8 +236,8 @@ video {
     width: 100%;
     max-height: 360px;
     border-radius: 14px;
-    border: 1px solid #223047;
-    background: #0b1220;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
 }
 
 img#previewImg {
@@ -201,8 +252,8 @@ img#previewImg {
 ===================================================== */
 .out {
     margin-top: 14px;
-    background: #0b1220;
-    border: 1px dashed #223047;
+    background: var(--bg-tertiary);
+    border: 1px dashed var(--border-secondary);
     border-radius: 12px;
     padding: 12px;
     word-break: break-word;
@@ -242,10 +293,49 @@ img#previewImg {
 }
 
 .chip {
-    border: 1px solid #223047;
-    background: #0f1526;
+    border: 1px solid var(--border-primary);
+    background: var(--file-label-bg);
     border-radius: 8px;
     padding: 6px 8px;
     font-family: ui-monospace, monospace;
     font-size: 0.86rem;
+}
+
+/* =====================================================
+   TOAST / NOTIFICAÇÕES
+===================================================== */
+#toastContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--primary-accent);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
 }
