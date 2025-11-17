@@ -1,13 +1,76 @@
 /* =====================================================
    RESET E BODY
 ===================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-    background: #0f172a;
+    background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
     color: #e5e7eb;
     text-align: center;
     padding: 20px;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+    text-align: left;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+}
+
+.hero-qr {
+    text-align: center;
+}
+
+.qr-code-svg {
+    width: 160px;
+    height: 160px;
+    border-radius: 16px;
+    background: #0b1220;
+    padding: 12px;
+    border: 1px solid #223047;
+}
+
+.qr-code-caption {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-top: 8px;
 }
 
 /* =====================================================
@@ -15,7 +78,20 @@ body {
 ===================================================== */
 h1 {
     margin-bottom: 8px;
-    font-size: 1.4rem;
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .sub {
@@ -29,10 +105,14 @@ h1 {
 .card {
     background: #111827;
     border-radius: 16px;
-    padding: 16px;
-    max-width: 600px;
-    margin: 0 auto 20px auto;
+    padding: 24px;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    text-align: left;
+}
+
+#app .main-header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* =====================================================
@@ -64,6 +144,20 @@ select {
     cursor: pointer;
 }
 
+input[type="file"] {
+    display: none; /* Esconde o input padrão */
+}
+
+.file-label {
+    display: block;
+    padding: 12px;
+    background: #0f1526;
+    border: 2px dashed #223047;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
 button.primary {
     background: #0b3b2d;
     border-color: #1f8f6e;
@@ -71,6 +165,17 @@ button.primary {
 
 button.primary:hover {
     background: #0d4434;
+}
+
+.button-hero {
+    display: inline-block;
+    background: #1f8f6e;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
 }
 
 /* =====================================================
@@ -82,6 +187,13 @@ video {
     border-radius: 14px;
     border: 1px solid #223047;
     background: #0b1220;
+}
+
+img#previewImg {
+    display: none;
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 12px;
 }
 
 /* =====================================================

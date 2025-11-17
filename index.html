@@ -1,83 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leitor de QR Code – Offline (Imagens + PDF)</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leitor de QR Code – Offline (Imagens + PDF)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Adicionado para ícones (ex: Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-<h1>Leitor de QR Code</h1>
-<div class="sub">Câmera, upload de imagens ou PDF. Escaneia qualquer código QR.</div>
+<div class="container">
+  <main>
+    <!-- Seção de Introdução (Hero) -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1 class="hero-title">Leitor de QR Code Seguro</h1>
+        <p class="hero-subtitle">Escaneie qualquer QR Code usando sua câmera ou arquivos (imagem e PDF) com total privacidade. Nenhum dado sai do seu navegador.</p>
+        <a href="#app" class="button-hero">Começar a Usar</a>
+      </div>
+      <div class="hero-qr">
+        <!-- QR Code para o repositório do GitHub -->
+        <svg viewBox="0 0 256 256" class="qr-code-svg">
+          <path fill="#fff" d="M240 240h-16v-16h16v16Zm-32-16h-16v16h16v-16ZM0 240h16v16H0v-16Zm32 0h16v16H32v-16Zm-32-32h16v16H0v-16Zm208-16h-16v16h16v-16Zm-16 16h-16v16h16v-16Zm-16 16h-16v16h16v-16Zm-16 16h-16v16h16v-16Zm-16 16h-16v16h16v-16Zm-16 16h-16v16h16v-16Zm-16 16h-16v16h16v-16Zm-16 16H80v16h16v-16Zm-16 16H64v16h16v-16Zm-16 16H48v16h16v-16Zm-16 16H32v16h16v-16Zm-16 16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm0-16H0v16h16v-16Zm16 0h16v16H16v-16Zm16 0h16v16H32v-16Zm16 0h16v16H48v-16Zm16 0h16v16H64v-16Zm16 0h16v16H80v-16Zm16 0h16v16H96v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm0 16h16v16h-16v-16Zm0 16h16v16h-16v-16Zm0 16h16v16h-16v-16Zm0 16h16v16h-16v-16Zm0 16h16v16h-16v-16Zm0 16h16v16h-16v-16Zm0 16h16v16h-16v-16Zm0 16h16v16h-16v-16Zm-16 16h16v16h-16v-16Zm-32 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16-16h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16H80v-16Zm-16 0h16v16H64v-16Zm-16 0h16v16H48v-16Zm-16 0h16v16H32v-16Zm-16-16h16v16H16v-16Zm0 16h16v16H16v-16Zm0 16h16v16H16v-16Zm0 16h16v16H16v-16Zm16 16h16v16H32v-16Zm16 0h16v16H48v-16Zm16 0h16v16H64v-16Zm16 0h16v16H80v-16Zm16 0h16v16H96v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm-16-16h16v16h-16v-16Zm0-16h16v16h-16v-16Zm0-16h16v16h-16v-16Zm0-16h16v16h-16v-16Zm0-16h16v16h-16v-16Zm-16-16h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16H96v-16Zm-16 0h16v16H80v-16Zm-16 0h16v16H64v-16Zm-16 0h16v16H48v-16Zm-16 0h16v16H32v-16Zm-16 0h16v16H16v-16Zm0-16h16v16H16v-16Zm0-16h16v16H16v-16Zm0-16h16v16H16v-16Zm0-16h16v16H16v-16Zm0-16h16v16H16v-16Zm16-16h16v16H32v-16Zm16 0h16v16H48v-16Zm16 0h16v16H64v-16Zm16 0h16v16H80v-16Zm16 0h16v16H96v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm-32-16h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16-16h16v16h-16v-16Zm16-16h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16H80v-16Zm-16 0h16v16H64v-16Zm-16 0h16v16H48v-16Zm-16 0h16v16H32v-16Zm-16-16h16v16H16v-16Zm16 16h16v16H32v-16Zm16 16h16v16H48v-16Zm16-16h16v16H64v-16Zm16 0h16v16H80v-16Zm16 0h16v16H96v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16-16h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16H80v-16Zm-16 0h16v16H64v-16Zm-16 0h16v16H48v-16Zm-16 0h16v16H32v-16Zm-16 0h16v16H16v-16Zm0 16h16v16H16v-16Zm0 16h16v16H16v-16Zm16 16h16v16H32v-16Zm16 0h16v16H48v-16Zm16 0h16v16H64v-16Zm16 0h16v16H80v-16Zm16 0h16v16H96v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm-32-48h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm16-16h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16H80v-16Zm-16 0h16v16H64v-16Zm-16 0h16v16H48v-16Zm-16 0h16v16H32v-16Zm-16 0h16v16H16v-16Zm16-16h16v16H32v-16Zm16 0h16v16H48v-16Zm16 0h16v16H64v-16Zm16 0h16v16H80v-16Zm16 0h16v16H96v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm16 0h16v16h-16v-16Zm-16-16h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16h-16v-16Zm-16 0h16v16H96v-16Zm-16 0h16v16H80v-16Zm-16 0h16v16H64v-16Zm-16 0h16v16H48v-16Zm-16 0h16v16H32v-16Zm-16 0h16v16H16v-16Z"/>
+        </svg>
+        <p class="qr-code-caption">Leia o código para ver o projeto no GitHub</p>
+      </div>
+    </section>
 
-<div class="card">
-  <h3>Câmera</h3>
-  <div class="row">
-    <div class="col">
-      <label>Dispositivo de câmera</label><br>
-      <select id="cameraSelect"></select>
+    <!-- Início da Aplicação -->
+    <div id="app">
+      <header class="main-header">
+        <h2>Comece a escanear</h2>
+        <p class="sub">Use sua câmera ou faça o upload de um arquivo.</p>
+      </header>
+
+      <section class="card">
+        <h3><i class="fa-solid fa-camera"></i> Câmera</h3>
+        <div class="row controls-row">
+          <div class="col">
+            <label for="cameraSelect">Dispositivo de câmera</label>
+            <select id="cameraSelect"></select>
+          </div>
+          <div class="col button-group">
+            <button id="startBtn" class="primary"><i class="fa-solid fa-play"></i> Iniciar</button>
+            <button id="stopBtn"><i class="fa-solid fa-stop"></i> Parar</button>
+          </div>
+        </div>
+        <video id="video" muted playsinline></video>
+        <div class="out">
+          <div>Status: <span id="statusCam">aguardando...</span></div>
+          <div id="badgesCam" class="chips"></div>
+          <div id="qrCam"></div>
+          <button id="copyCam" aria-label="Copiar QR Code"><i class="fa-solid fa-copy"></i> Copiar QR</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3><i class="fa-solid fa-upload"></i> Upload de arquivo (imagem ou PDF)</h3>
+        <label for="fileInput" class="file-label">Clique para selecionar um arquivo</label>
+        <input type="file" id="fileInput" accept="image/*,application/pdf">
+        <img id="previewImg" alt="Pré-visualização da imagem ou página do PDF">
+        <div class="out">
+          <div>Status: <span id="statusFile">aguardando arquivo...</span></div>
+          <div id="badgesFile" class="chips"></div>
+          <div id="qrFile"></div>
+          <button id="copyFile" aria-label="Copiar QR Code"><i class="fa-solid fa-copy"></i> Copiar QR</button>
+        </div>
+      </section>
     </div>
-    <div class="col" style="max-width:220px;display:flex;align-items:flex-end;gap:8px">
-      <button id="startBtn" class="primary">Iniciar</button>
-      <button id="stopBtn">Parar</button>
-    </div>
-  </div>
-  <video id="video" muted playsinline></video>
-  <div class="out">
-    <div>Status: <span id="statusCam">aguardando...</span></div>
-    <div id="badgesCam" class="chips"></div>
-    <div id="qrCam"></div>
-    <button id="copyCam">Copiar QR</button>
-  </div>
+
+    <section class="card info-card">
+      <h2><i class="fa-solid fa-circle-info"></i> Como Funciona</h2>
+      <p>Este aplicativo utiliza tecnologias modernas para ler códigos QR de forma segura e eficiente:</p>
+      <ul>
+        <li><strong>Processamento Local:</strong> Todo o processamento acontece no seu dispositivo, sem enviar dados para servidores externos.</li>
+        <li><strong>Detecção Inteligente:</strong> Identifica automaticamente o tipo de QR code (URL, email, telefone, Pix, WhatsApp, etc.).</li>
+        <li><strong>Compatibilidade:</strong> Funciona com qualquer código QR padrão.</li>
+        <li><strong>Offline:</strong> Após o carregamento inicial, funciona sem conexão com a internet.</li>
+      </ul>
+    </section>
+
+    <section class="card info-card">
+      <h2><i class="fa-solid fa-shield-halved"></i> Privacidade e LGPD</h2>
+      <p>Respeitamos sua privacidade e estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD). Nenhum dado lido ou imagem é enviado para fora do seu navegador.</p>
+      <ul>
+        <li><strong>Não armazenamos dados:</strong> Nenhum código QR, imagem ou informação pessoal é armazenado em servidores.</li>
+        <li><strong>Processamento 100% local:</strong> Toda a análise acontece exclusivamente no seu dispositivo.</li>
+        <li><strong>Sem rastreamento:</strong> Não utilizamos cookies de marketing, analytics ou qualquer forma de rastreamento de usuário.</li>
+        <li><strong>Código aberto:</strong> O código-fonte está disponível no GitHub para total transparência.</li>
+      </ul>
+      <p class="privacy-link">
+        Para saber mais, consulte o texto oficial da <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank" rel="noopener noreferrer">Lei nº 13.709/2018 (LGPD)</a>.
+      </p>
+    </section>
+  </main>
 </div>
 
-<div class="card">
-  <h3>Upload de arquivo (imagem ou PDF)</h3>
-  <input type="file" id="fileInput" accept="image/*,application/pdf"><br>
-  <img id="previewImg" style="display:none;width:100%;margin-top:12px;border-radius:12px">
-  <div class="out">
-    <div>Status: <span id="statusFile">aguardando arquivo...</span></div>
-    <div id="badgesFile" class="chips"></div>
-    <div id="qrFile"></div>
-    <button id="copyFile">Copiar QR</button>
-  </div>
-</div>
-
-<div class="card">
-  <h3>Como Funciona</h3>
-  <p>Este aplicativo utiliza tecnologias modernas para ler códigos QR de forma segura e eficiente:</p>
-  <ul>
-    <li><strong>Processamento Local:</strong> Todo o processamento acontece no seu dispositivo, sem enviar dados para servidores externos</li>
-    <li><strong>Detecção Inteligente:</strong> Identifica automaticamente o tipo de QR code (URL, email, telefone, Pix, WhatsApp, etc.)</li>
-    <li><strong>Compatibilidade:</strong> Funciona com qualquer código QR padrão, não se limitando apenas ao Pix</li>
-    <li><strong>Offline:</strong> Após o carregamento inicial, funciona sem conexão com internet</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h3>Privacidade e LGPD</h3>
-  <p>Respeitamos sua privacidade e estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD):</p>
-  <ul>
-    <li><strong>Não armazenamos dados:</strong> Nenhum código QR, imagem ou informação pessoal é armazenado em nossos servidores</li>
-    <li><strong>Processamento local:</strong> Todo o processamento acontece exclusivamente no seu dispositivo</li>
-    <li><strong>Sem rastreamento:</strong> Não utilizamos cookies, analytics ou qualquer forma de rastreamento</li>
-    <li><strong>Código aberto:</strong> O código fonte está disponível para verificação de transparência</li>
-  </ul>
-</div>
-
-<footer style="text-align: center; margin-top: 20px; padding: 20px; color: #9ca3af; font-size: 0.9rem;">
-  <div>Developed by: Marcos Guilherme</div>
-  <div style="margin-top: 8px;">
-    <a href="https://github.com/z12guilherme/qrcode-detector" target="_blank" style="color: #60a5fa; text-decoration: none;">
-      📂 Ver código no GitHub
+<footer>
+  <div class="footer-content">
+    <span>Desenvolvido por Marcos Guilherme</span>
+    <a href="https://github.com/z12guilherme/qrcode-detector" target="_blank" rel="noopener noreferrer" class="github-link">
+      <i class="fa-brands fa-github"></i> Ver código no GitHub
     </a>
   </div>
 </footer>
 
 <!-- jsQR via CDN -->
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
-<!-- PDF.js via CDN -->
+<!-- PDF.js via CDN (workerSrc é configurado em script.js) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
 <script src="js/script.js"></script>
 
