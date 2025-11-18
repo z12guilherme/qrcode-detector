@@ -380,6 +380,59 @@ const fileScanner = {
 fileScanner.init();
 
 // =======================================================
+// CONSENTIMENTO DE PRIVACIDADE (LGPD)
+// =======================================================
+const privacyConsent = {
+    modal: document.getElementById('privacy-consent-modal'),
+    acceptBtn: document.getElementById('consent-accept'),
+    declineBtn: document.getElementById('consent-decline'),
+    consentKey: 'privacy-consent-given',
+
+    init() {
+        // Verifica se o consentimento já foi dado
+        if (localStorage.getItem(this.consentKey)) {
+            this.onAccept();
+        } else {
+            this.showModal();
+        }
+
+        this.acceptBtn.addEventListener('click', () => {
+            localStorage.setItem(this.consentKey, 'true');
+            this.onAccept();
+            this.hideModal();
+        });
+
+        this.declineBtn.addEventListener('click', () => {
+            this.onDecline();
+            this.hideModal();
+        });
+    },
+
+    showModal() {
+        this.modal.style.display = 'flex';
+    },
+
+    hideModal() {
+        this.modal.style.display = 'none';
+    },
+
+
+    onAccept() {
+        // Inicializa o scanner da câmera somente após o consentimento
+        cameraScanner.init();
+    },
+
+    onDecline() {
+        // Desabilita a funcionalidade da câmera se o usuário recusar
+        const cameraSection = document.querySelector('#app .card:first-of-type');
+        cameraSection.innerHTML = `
+            <h3><i class="fa-solid fa-camera"></i> Câmera</h3>
+            <p>Você recusou o acesso à câmera. Para usar esta funcionalidade, recarregue a página e aceite os termos de privacidade.</p>
+        `;
+    }
+};
+
+// =======================================================
 // ALTERNADOR DE TEMA (LIGHT/DARK MODE)
 // =======================================================
 const themeSwitcher = {
@@ -416,4 +469,5 @@ const themeSwitcher = {
     }
 };
 
+privacyConsent.init();
 themeSwitcher.init();

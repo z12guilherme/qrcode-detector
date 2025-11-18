@@ -411,3 +411,55 @@ footer .footer-content {
     justify-content: center;
     gap: 10px;
 }
+
+/* =====================================================
+   MODAL
+===================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-title {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.modal-buttons {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--border-primary);
+    cursor: pointer;
+}
+
+.button-secondary:hover {
+    background: var(--bg-primary);
+}
