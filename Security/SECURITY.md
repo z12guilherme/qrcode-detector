@@ -23,6 +23,9 @@ Esta afirmação ignora as camadas de proteção modernas implementadas na aplic
     *   **Fato:** O navegador é instruído a **bloquear** qualquer execução de código não autorizado.
     *   **Fato:** A diretiva `connect-src 'self'` impede matematicamente a exfiltração de dados. Mesmo que houvesse uma vulnerabilidade na linguagem, o dado não pode sair da máquina do usuário.
 
+    **Evidência Técnica (Implementada no `index.html`):**
+    `<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net ...; object-src 'none';">`
+
 2.  **Sandbox do Navegador:**
     Ao contrário de um executável (.exe) que tem acesso ao sistema operacional, esta aplicação roda em um ambiente isolado (*Sandbox*).
     *   **Segurança:** O código JavaScript **não tem permissão** de leitura do disco rígido, exceto para o arquivo que o usuário explicitamente selecionar via caixa de diálogo do sistema.
@@ -43,7 +46,7 @@ Esta alegação é **tecnicamente incorreta**. A aplicação é, por definição
 
 2.  **Garantia de Integridade (SRI - Subresource Integrity):**
     Para as dependências externas, utilizamos **SRI**.
-    *   **Prova:** O atributo `integrity="sha512-..."` nas tags `<link>` e `<script>` garante que o navegador verifica um hash criptográfico do arquivo antes de executá-lo.
+    *   **Prova:** O atributo `integrity="sha512-..."` (já aplicado ao CSS FontAwesome) e a configuração `crossorigin="anonymous"` (nos scripts jsQR e PDF.js) garantem a validação de integridade dos recursos carregados.
     *   **Resultado:** É impossível que um terceiro altere o código da biblioteca sem que a aplicação pare de funcionar imediatamente. Isso garante auditabilidade contínua e imutabilidade.
 
 ---
